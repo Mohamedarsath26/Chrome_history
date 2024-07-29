@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Recent Chrome History</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+</head>
+<body>
+    <h1>Recent Chrome History</h1>
+    <table border="1">
+        <thead>
+            <tr>
+                <th>Title</th>
+                <th>URL</th>
+                <th>Visit Count</th>
+                <th>Last Visit Time</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for item in history %}
+            <tr>
+                <td>{{ item.title }}</td>
+                <td class="url"><a href="{{ item.url }}" target="_blank">{{ item.url }}</a></td>
+                <td>{{ item.visit_count }}</td>
+                <td>{{ item.last_visit_time }}</td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+</body>
+</html>
